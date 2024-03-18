@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Check if Nikto is installed
+if ! command -v nikto &> /dev/null; then
+    echo "Nikto is not installed. Please install Nikto and try again."
+    exit 1
+fi
+
+# Function to run Nikto scan
+run_scan() {
+    url="$1"
+    output_file="${url}_niktoscan.txt"
+    
+    echo "Running Nikto scan for: $url"
+    nikto -h "$url" -output "$output_file"
+    echo "Nikto scan completed. Results saved in: $output_file"
+}
+
+# Run Nikto scan for each URL provided
+for url in "$@"; do
+    run_scan "$url"
+done
+
+
