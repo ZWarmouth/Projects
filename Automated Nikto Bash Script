@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Script to automate a Nikto scan in Kali Linux and save the output
+
+
 # Check if Nikto is installed
 if ! command -v nikto &> /dev/null; then
     echo "Nikto is not installed. Please install Nikto and try again."
